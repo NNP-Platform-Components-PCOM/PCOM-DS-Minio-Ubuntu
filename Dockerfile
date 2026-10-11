@@ -17,3 +17,8 @@ LABEL org.opencontainers.image.title="pcom-ds-minio-ubuntu" \
       org.opencontainers.image.version="${VERSION}" \
       org.opencontainers.image.revision="${VCS_REF}" \
       org.opencontainers.image.created="${BUILD_DATE}"
+
+EXPOSE 9000 9001
+
+ENTRYPOINT ["/usr/bin/minio"]
+CMD ["server", "/data", "--console-address", ":9001"]
